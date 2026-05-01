@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>BuddhaAgro | Integrated Life-cycle Advantage</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23004d40'><path d='M17,8C15.39,8 13.94,8.81 13.03,10.05C12.9,10.22 12.79,10.39 12.68,10.58C11.75,12.16 10,13.25 8,13.25C7.22,13.25 6.47,13.08 5.81,12.78C5.32,12.56 4.87,12.27 4.5,11.91C3.56,11 3,9.73 3,8.33C3,5.39 5.39,3 8.33,3C10.74,3 12.79,4.6 13.43,6.82C13.5,7.05 13.56,7.28 13.6,7.53C13.62,7.68 13.63,7.84 13.63,8C13.63,8.16 13.62,8.32 13.6,8.47C13.56,8.72 13.5,8.95 13.43,9.18C12.79,11.4 10.74,13 8.33,13C5.39,13 3,10.61 3,7.67C3,6.27 3.56,5 4.5,4.09C4.87,3.73 5.32,3.44 5.81,3.22C6.47,2.92 7.22,2.75 8,2.75C10,2.75 11.75,3.84 12.68,5.42C12.79,5.61 12.9,5.78 13.03,5.95C13.94,7.19 15.39,8 17,8M17,10C15.39,10 13.94,9.19 13.03,7.95C12.9,7.78 12.79,7.61 12.68,7.42C11.75,5.84 10,4.75 8,4.75C7.22,4.75 6.47,4.92 5.81,5.22C5.32,5.44 4.87,5.73 4.5,6.09C3.56,7 3,8.27 3,9.67C3,12.61 5.39,15 8.33,15C10.74,15 12.79,13.4 13.43,11.18C13.5,10.95 13.56,10.72 13.6,10.47C13.62,10.32 13.63,10.16 13.63,10C13.63,9.84 13.62,9.68 13.6,9.53C13.56,9.28 13.5,9.05 13.43,8.82C12.79,6.6 10.74,5 8.33,5C5.39,5 3,7.39 3,10.33C3,11.73 3.56,13 4.5,13.91C4.87,14.27 5.32,14.56 5.81,14.78C6.47,15.08 7.22,15.25 8,15.25C10,15.25 11.75,14.16 12.68,12.58C12.79,12.39 12.9,12.22 13.03,12.05C13.94,10.81 15.39,10 17,10Z'/></svg>">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Custom JS (Config + App Logic) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased">
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-teal-900/10 dark:border-white/10 transition-all duration-300">
+        <div class="max-w-[1280px] mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="text-xl font-bold text-teal-900 dark:text-white tracking-tight">BuddhaAgro</div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 font-manrope text-sm font-medium tracking-tight">
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="#about">About Us</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="#solutions">Solutions</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="#technology">Technology</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="#contact">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="hidden sm:block bg-primary-container text-white px-6 py-2.5 font-label-md rounded-lg active:scale-95 transition-transform duration-150">
+                    Get Started
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-teal-900 dark:text-white" aria-label="Toggle Menu">
+                    <span id="hamburger-icon" class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="md:hidden bg-white dark:bg-stone-900 border-b border-teal-900/10 dark:border-white/10">
+            <div class="px-6 py-8 flex flex-col space-y-6">
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="#about">About Us</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="#solutions">Solutions</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="#technology">Technology</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="#contact">Contact</a>
+                <button class="w-full bg-primary-container text-white py-4 font-label-md rounded-lg">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img alt="BuddhaAgro Hero" class="w-full h-full object-cover brightness-[0.85]"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiiZXMr9XEGj_X2omH676M_n5hDF_Pc7nJsievURl-rJCnLEjj7EJFgrGqYBazzYd5Gs9ZqG9fLv2VKYIHv9oZQK-HGVaVVV4olIEVJOO3MyNjvS_jiWQ5Oo-TSpr4e6B5tE0v9T7oKTXiL45p5Is06ylK1Hk861Kr2IzNaKhc0uSriZgaMO_l9XhprV2xgRtwgB03hdrQaTGiBokxhfmevl8rL3jvEVT9Di7rkd1SjT7ibvVtIL2KbEGz0IZfdp_b9YWVMO3vbyCw" />
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/40 to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2">
+                <div class="flex flex-col gap-6 reveal">
+                    <span class="bg-secondary-container/20 text-secondary border border-secondary/20 px-4 py-1 self-start rounded-full font-label-md text-xs">AGRICULTURE 4.0</span>
+                    <h1 class="font-headline-xl text-headline-xl text-white drop-shadow-sm">
+                        Cultivating the Future: The Integrated Life-cycle Advantage.
+                    </h1>
+                    <p class="text-body-lg font-body-lg text-white/90 max-w-xl">
+                        Revolutionizing agriculture from seed to harvest with seamless, sustainable solutions designed
+                        for high-precision institutional yields.
+                    </p>
+                    <div class="flex items-center gap-4 mt-4">
+                        <a class="bg-secondary-container text-on-secondary-fixed-variant px-8 py-4 font-label-md rounded-lg hover:brightness-110 transition-all" href="#solutions">Explore Our Solutions</a>
+                        <a class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 font-label-md rounded-lg hover:bg-white/20 transition-all" href="#technology">How It Works</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="py-section-padding bg-surface overflow-hidden" id="about">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-5 reveal">
+                        <div class="p-2 bg-white border border-primary/10 rounded-xl relative overflow-hidden">
+                            <img alt="Science of Growth" class="w-full h-[500px] object-cover rounded-lg"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDInk05tyqg0rnSWt8gf4IIKk8mP_IJaHVlXB5kr7hx0cyIjToO7WuQOqG40w1pbjTz-WEVPDanFDdco-rABoUSlP_kvI462bNcs66EXXYJf36RTP0B8csXyGOVsvgJJky-ZrmfwgmxW4dxJ-fqzAiluyIBdXm0IeEEayOnlt7NVXxdKGCT1fnIJIh0UbewFFEL2KmHpFSdtRkuPBV_cXTE6IDqcvH5UUGHvoZKanw_RSS-vnQ3ySjjOWh1Sq9ZFJAgpbpxr4MOTrFh" />
+                            <div class="absolute bottom-8 right-8 bg-white p-6 border border-primary/5 rounded shadow-sm max-w-[200px]">
+                                <span class="text-secondary font-headline-md block mb-1 counter" data-target="100" data-suffix="%">0%</span>
+                                <p class="font-label-md text-xs text-on-surface-variant uppercase">Traceable Integration from seed to market.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 space-y-8 reveal reveal-delay-2">
+                        <div>
+                            <span class="text-secondary font-label-md tracking-widest uppercase block mb-4">Our DNA</span>
+                            <h2 class="font-headline-lg text-headline-lg text-primary mb-6">The Industrial-Organic Duality</h2>
+                            <p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+                                BuddhaAgro represents the convergence of traditional agricultural resilience and
+                                next-generation technological precision. Our unique business proposition lies in our
+                                <strong>Integrated Life-cycle Advantage</strong>—a holistic framework that ensures every
+                                phase of the agricultural process is data-driven, sustainable, and optimized for scale.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8 border-t border-primary/10 pt-8">
+                            <div>
+                                <h4 class="font-headline-md text-primary mb-2">Stability</h4>
+                                <p class="text-body-md text-on-surface-variant">Built on decades of industrial expertise and infrastructure.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md text-primary mb-2">Expertise</h4>
+                                <p class="text-body-md text-on-surface-variant">Ag-tech pioneers driving the shift toward sustainable yields.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrated Progress Tracker -->
+        <section class="py-16 bg-surface-container-low overflow-hidden" id="lifecycle-journey">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="flex flex-col items-center mb-12 reveal">
+                    <h3 class="font-headline-md text-primary">Integrated Life-cycle Journey</h3>
+                </div>
+                <div class="relative">
+                    <!-- Progress Line with Animation -->
+                    <div class="lifecycle-track">
+                        <div class="lifecycle-line-fill"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="lifecycle-step flex flex-col items-center text-center bg-white p-8 border border-primary/10 rounded-lg">
+                            <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 border-2 border-white">
+                                <span class="material-symbols-outlined text-primary-container">crop</span>
+                            </div>
+                            <span class="font-headline-md text-primary block mb-1">Seed</span>
+                            <p class="text-label-md text-on-surface-variant">Genetic Selection</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="lifecycle-step flex flex-col items-center text-center bg-white p-8 border border-primary/10 rounded-lg">
+                            <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 border-2 border-white">
+                                <span class="material-symbols-outlined text-primary-container">water_drop</span>
+                            </div>
+                            <span class="font-headline-md text-primary block mb-1">Care</span>
+                            <p class="text-label-md text-on-surface-variant">Precision Inputs</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="lifecycle-step flex flex-col items-center text-center bg-white p-8 border border-primary/10 rounded-lg">
+                            <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 border-2 border-white">
+                                <span class="material-symbols-outlined text-primary-container">monitoring</span>
+                            </div>
+                            <span class="font-headline-md text-primary block mb-1">Scale</span>
+                            <p class="text-label-md text-on-surface-variant">Real-time Analytics</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="lifecycle-step flex flex-col items-center text-center bg-white p-8 border border-primary/10 rounded-lg">
+                            <div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mb-4 border-2 border-white">
+                                <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                            </div>
+                            <span class="font-headline-md text-primary block mb-1">Market</span>
+                            <p class="text-label-md text-on-surface-variant">Seamless Harvest</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="py-section-padding bg-white" id="solutions">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="mb-16 reveal">
+                    <span class="text-secondary font-label-md tracking-widest uppercase block mb-4">Our Ecosystem</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary">Strategic Solutions for Modern Growth</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                    <!-- Precision Farming -->
+                    <div class="group bg-white border border-primary/10 p-8 rounded-lg hover:border-primary/30 transition-all duration-300 reveal">
+                        <div class="mb-6 overflow-hidden rounded">
+                            <img alt="Precision Farming" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNXsYtrr-9T7ulrF6zkJM4zamWgHCt6lQ_xPyEtsKu4GGQR0eCw0-LDqP1zoLKIx9SmZkPOAvvpX6-KM1uoddsf0xRMVojJWD2bfaXNT0hFz-gLCpi1gKxMUV1aPSr5ScA8iE9PLxme4hYyITTG-UqfAytCOAou17kiFUn0S4EF1ZGmIDhi4awBXt1Svq6pPmeOzWyu8gr98Eq4ZRdK1twkg6r0_pTihxx-0lLHrcUkcWQkvLI3Y3u-eq4JhfKc1JqQBpI3pAlJzoq" />
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+                            <h3 class="font-headline-md text-primary">Precision Farming</h3>
+                        </div>
+                        <p class="text-body-md text-on-surface-variant mb-6">
+                            Utilizing GPS and satellite data to manage field variability, ensuring every seed receives
+                            the optimal amount of nutrients.
+                        </p>
+                        <a class="text-primary font-label-md flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    <!-- Bio-input Solutions -->
+                    <div class="group bg-white border border-primary/10 p-8 rounded-lg hover:border-primary/30 transition-all duration-300 reveal reveal-delay-2">
+                        <div class="mb-6 overflow-hidden rounded">
+                            <img alt="Bio-inputs" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyMXKagROIeYDuITYCJMJpTZPvcdgqYzkZJswTanHypdjmqXkN_l2v0Q9F0rUox2EgWX_ZMdSDERhRVdOFyMRylRaY8vby7g1CM-PWD5z_4Q28ubihqPMww3ZRr-yv5NsB4w1KKaF_7_RqyxTBZLEEtD47lXLuhQUSJcjqyRR3W7t_lrrSb_L15tsTNrAswg56ngPbI4tTXZKgnzEToZXB1bAxD2eVezSJqeH_sdrFU93np2hYGgtRK4OrOl0Mok-J5KPVns5jTztg" />
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">biotech</span>
+                            <h3 class="font-headline-md text-primary">Bio-input Solutions</h3>
+                        </div>
+                        <p class="text-body-md text-on-surface-variant mb-6">
+                            Advanced fertilizers and crop protection formulas developed in our proprietary labs to boost
+                            immunity and soil health.
+                        </p>
+                        <a class="text-primary font-label-md flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    <!-- Agricultural Drone Tech -->
+                    <div class="group bg-white border border-primary/10 p-8 rounded-lg hover:border-primary/30 transition-all duration-300 reveal reveal-delay-3">
+                        <div class="mb-6 overflow-hidden rounded">
+                            <img alt="Drone Tech" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkgdvY1oMT3sMNYCro1nqPY0iXrCEX2HP9eTkw2BPN9Xgq95o0KIbeIzfq5onFid4s_R8MkHkCRXmgi3-JkYiFyZMjmsihXbTevoo907XvuARd4_srVLxxl054LXnLgNqIdAKGWJG9v96FsUlDYEtmH2neTzu9ipQ4ZXT4l0v1Yhl47KT1vagfowF-gfi0ooXLh_GvfSqTMEXYyDhn1qrj7FS8J-oVztKCOgs8NqFB_DiK6u55k4gf26zp-gE1TwZOkJ6Rtx9_1SeW" />
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">airplanemode_active</span>
+                            <h3 class="font-headline-md text-primary">Agricultural Drone Tech</h3>
+                        </div>
+                        <p class="text-body-md text-on-surface-variant mb-6">
+                            Automated aerial surveillance and precision spraying that reduces waste by 30% while
+                            increasing operational efficiency.
+                        </p>
+                        <a class="text-primary font-label-md flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack Section -->
+        <section class="py-section-padding bg-on-tertiary-fixed text-white overflow-hidden relative" id="technology">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 40px 40px;"></div>
+            </div>
+            <div class="max-w-[1280px] mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="reveal">
+                        <span class="text-secondary-fixed-dim font-label-md tracking-widest uppercase block mb-4">The Stack</span>
+                        <h2 class="font-headline-lg text-headline-lg mb-8 leading-tight">Data-Driven Intelligence for Resilience</h2>
+                        <div class="space-y-6">
+                            <!-- Tech Item 1 -->
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-primary-container border border-white/20 flex items-center justify-center rounded">
+                                    <span class="material-symbols-outlined text-primary-fixed">sensors</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-headline-md text-headline-md mb-2">Edge IoT Sensors</h4>
+                                    <p class="text-body-md text-stone-300">Continuous soil moisture, pH, and nutrient monitoring directly from the field.</p>
+                                </div>
+                            </div>
+                            <!-- Tech Item 2 -->
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-primary-container border border-white/20 flex items-center justify-center rounded">
+                                    <span class="material-symbols-outlined text-primary-fixed">hub</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-headline-md text-headline-md mb-2">Centralized Ag-OS</h4>
+                                    <p class="text-body-md text-stone-300">Our proprietary operating system that integrates data from all inputs to provide actionable insights.</p>
+                                </div>
+                            </div>
+                            <!-- Tech Item 3 -->
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-primary-container border border-white/20 flex items-center justify-center rounded">
+                                    <span class="material-symbols-outlined text-primary-fixed">psychology</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-headline-md text-headline-md mb-2">AI Yield Prediction</h4>
+                                    <p class="text-body-md text-stone-300">Machine learning models that forecast harvest dates and volumes with 94% accuracy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary/20 backdrop-blur-xl border border-white/10 rounded-xl p-8 lg:p-12 reveal reveal-delay-2">
+                        <div class="flex flex-col gap-8">
+                            <div class="flex justify-between items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="text-stone-400 font-label-md uppercase">Current Performance</span>
+                                    <h5 class="text-3xl font-headline-xl">Optimized</h5>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-secondary-fixed-dim text-4xl font-headline-xl counter" data-target="22" data-suffix="%">0%</span>
+                                    <p class="text-stone-400 text-xs">Yield Increase</p>
+                                </div>
+                            </div>
+                            <!-- Data Viz with Animation -->
+                            <div class="h-64 flex items-end justify-between gap-2">
+                                <div class="chart-bar w-full bg-primary-fixed/20 rounded-t-sm" style="--bar-h: 40%"></div>
+                                <div class="chart-bar w-full bg-primary-fixed/40 rounded-t-sm" style="--bar-h: 60%"></div>
+                                <div class="chart-bar w-full bg-primary-fixed/60 rounded-t-sm" style="--bar-h: 50%"></div>
+                                <div class="chart-bar w-full bg-primary-fixed/80 rounded-t-sm relative" style="--bar-h: 85%">
+                                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-secondary-container text-primary px-2 py-1 text-[10px] rounded font-bold">PEAK</div>
+                                </div>
+                                <div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="--bar-h: 95%"></div>
+                                <div class="chart-bar w-full bg-primary-fixed/70 rounded-t-sm" style="--bar-h: 70%"></div>
+                                <div class="chart-bar w-full bg-primary-fixed/40 rounded-t-sm" style="--bar-h: 45%"></div>
+                            </div>
+                            <p class="text-stone-400 text-xs italic text-center">Real-time aggregate data visualization of integrated lifecycle stages.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-section-padding bg-surface" id="contact">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                    <div class="reveal">
+                        <span class="text-secondary font-label-md tracking-widest uppercase block mb-4">Connect With Us</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Start Your Integration Journey</h2>
+                        <div class="space-y-8 mb-12">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary mt-1">location_on</span>
+                                <div>
+                                    <h4 class="font-label-md text-primary uppercase">Corporate Headquarters</h4>
+                                    <p class="text-on-surface-variant">Agro-Park Industrial Estate, Plot 44-B<br />Mumbai, Maharashtra 400001</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary mt-1">mail</span>
+                                <div>
+                                    <h4 class="font-label-md text-primary uppercase">General Inquiries</h4>
+                                    <p class="text-on-surface-variant">solutions@buddhaagro.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-primary/10 h-64 grayscale">
+                            <img alt="Location Map" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwOsQx3fnQh7pqskSzK0N4LNkv2TxfeACKFIpDps-M47miQbm46et_QaqIPx87wTucKR-kviZHN5PM-NTBBOKvSIpxHi5CjBU_ObmyL4gwciI-XYqJRVoyL9SkVjUALwtY7YODu2iAe97ySiYaKR9QNXXlJtTNHpNSWKm9REFyAYGPF0_3LEvUbF9UQnlTOr6szxxsFQPoujn-aDqhcf2O6K30rCzwPWgZ3QFP-KgJhkoUZP1Eb9OapMd8iJQpFmFNoJm2Yty736Y8" />
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-10 border border-primary/10 rounded-lg shadow-sm reveal reveal-delay-2">
+                        <!-- Success Message -->
+                        <div id="form-success">
+                            <div class="success-icon">
+                                <span class="material-symbols-outlined text-primary-container text-4xl">check</span>
+                            </div>
+                            <h3 class="font-headline-md text-primary mb-2">Message Sent!</h3>
+                            <p class="text-on-surface-variant">Thank you for reaching out. Our team will contact you within 24 hours to optimize your lifecycle journey.</p>
+                            <button onclick="location.reload()" class="mt-8 text-primary font-label-md underline underline-offset-4">Send another message</button>
+                        </div>
+
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-xs font-label-md text-primary uppercase">Full Name</label>
+                                    <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="John Doe" type="text" />
+                                    <span class="field-error-msg">Please enter your name</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-xs font-label-md text-primary uppercase">Organization</label>
+                                    <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="Agro Corp" type="text" />
+                                    <span class="field-error-msg">Please enter organization</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-label-md text-primary uppercase">Email Address</label>
+                                <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="john@company.com" type="email" />
+                                <span class="field-error-msg">Please enter a valid email</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-label-md text-primary uppercase">Subject</label>
+                                <select class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none">
+                                    <option value="">Select a subject</option>
+                                    <option>Precision Farming Inquiry</option>
+                                    <option>Bio-input Procurement</option>
+                                    <option>Technology Partnership</option>
+                                    <option>General Support</option>
+                                </select>
+                                <span class="field-error-msg">Please select a subject</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-label-md text-primary uppercase">Message</label>
+                                <textarea class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="How can we help optimize your lifecycle?" rows="4"></textarea>
+                                <span class="field-error-msg">Please enter your message</span>
+                            </div>
+                            <button class="w-full bg-primary-container text-white py-4 font-label-md rounded hover:bg-primary transition-all">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-50 dark:bg-stone-950 w-full py-16 border-t border-teal-900/10 dark:border-white/10">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12 mb-12">
+                <div>
+                    <div class="text-2xl font-bold text-teal-900 dark:text-teal-50 mb-4">BuddhaAgro</div>
+                    <p class="font-manrope text-xs font-semibold tracking-wider uppercase text-teal-900/60 dark:text-teal-500">
+                        Integrated Life-cycle Advantage.
+                    </p>
+                </div>
+                <div class="flex md:justify-end gap-6">
+                    <a href="#" class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-teal-900/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500">
+                    © 2025 BuddhaAgro. All rights reserved.
+                </p>
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Compliance</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Sustainability</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
