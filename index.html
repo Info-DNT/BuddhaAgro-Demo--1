@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>BuddhaAgro | Integrated Life-cycle Advantage</title>
+    <title data-i18n="page_title_index">BuddhaAgro | Integrated Life-cycle Advantage</title>
     <meta name="description" content="BuddhaAgro revolutionizes agriculture with the Integrated Life-cycle Advantage — precision farming, sustainable bio-inputs, and data-driven intelligence from seed to market." />
     
     <!-- Favicon -->
@@ -20,7 +20,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Custom JS (Config + App Logic) -->
+    <!-- Custom JS (Config + Localization + App Logic) -->
+    <script src="js/translations.js" defer></script>
+    <script src="js/shared.js" defer></script>
     <script src="js/main.js" defer></script>
 </head>
 
@@ -37,16 +39,26 @@
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8 font-manrope text-sm font-medium tracking-tight">
-                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="about.html">About Us</a>
-                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="solutions.html">Solutions</a>
-                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="technology.html">Technology</a>
-                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="contact.html">Contact</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="about.html" data-i18n="nav_about">About Us</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="solutions.html" data-i18n="nav_solutions">Solutions</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="technology.html" data-i18n="nav_technology">Technology</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="contact.html" data-i18n="nav_contact">Contact</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="contact.html" class="hidden sm:inline-block bg-primary-container text-white px-6 py-2.5 font-label-md rounded-lg active:scale-95 transition-transform duration-150 hover:bg-primary text-center">
+                <a href="contact.html" class="hidden sm:inline-block bg-primary-container text-white px-6 py-2.5 font-label-md rounded-lg active:scale-95 transition-transform duration-150 hover:bg-primary text-center" data-i18n="btn_get_started">
                     Get Started
                 </a>
+                
+                <!-- Desktop Language Switcher -->
+                <div class="flex items-center bg-stone-100 dark:bg-stone-800 p-1 rounded-lg border border-teal-900/10 dark:border-white/10" id="lang-switcher-desktop">
+                    <button onclick="switchLanguage('en')" class="lang-btn-en px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-200">
+                        EN
+                    </button>
+                    <button onclick="switchLanguage('hi')" class="lang-btn-hi px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-200">
+                        हिन्दी
+                    </button>
+                </div>
                 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-teal-900 dark:text-white" aria-label="Toggle Menu">
@@ -58,11 +70,24 @@
         <!-- Mobile Menu Drawer -->
         <div id="mobile-menu" class="md:hidden bg-white dark:bg-stone-900 border-b border-teal-900/10 dark:border-white/10">
             <div class="px-6 py-8 flex flex-col space-y-6">
-                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="about.html">About Us</a>
-                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="solutions.html">Solutions</a>
-                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="technology.html">Technology</a>
-                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="contact.html">Contact</a>
-                <a href="contact.html" class="w-full bg-primary-container text-white py-4 font-label-md rounded-lg text-center hover:bg-primary">Get Started</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="about.html" data-i18n="nav_about">About Us</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="solutions.html" data-i18n="nav_solutions">Solutions</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="technology.html" data-i18n="nav_technology">Technology</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="contact.html" data-i18n="nav_contact">Contact</a>
+                <a href="contact.html" class="w-full bg-primary-container text-white py-4 font-label-md rounded-lg text-center hover:bg-primary" data-i18n="btn_get_started">Get Started</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="flex justify-between items-center bg-stone-100 dark:bg-stone-850 p-2 rounded-lg mt-4 border border-teal-900/10 dark:border-white/10" id="lang-switcher-mobile">
+                    <span class="text-sm font-medium text-stone-600 dark:text-stone-400">Language / भाषा</span>
+                    <div class="flex items-center bg-stone-200 dark:bg-stone-800 p-0.5 rounded-md">
+                        <button onclick="switchLanguage('en')" class="lang-btn-en px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200">
+                            EN
+                        </button>
+                        <button onclick="switchLanguage('hi')" class="lang-btn-hi px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200">
+                            हिन्दी
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -77,17 +102,17 @@
             </div>
             <div class="relative z-10 max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2">
                 <div class="flex flex-col gap-6 reveal">
-                    <span class="bg-secondary-container/20 text-secondary border border-secondary/20 px-4 py-1 self-start rounded-full font-label-md text-xs">AGRICULTURE 4.0</span>
-                    <h1 class="font-headline-xl text-headline-xl text-white drop-shadow-sm">
+                    <span class="bg-secondary-container/20 text-secondary border border-secondary/20 px-4 py-1 self-start rounded-full font-label-md text-xs" data-i18n="hero_tag">AGRICULTURE 4.0</span>
+                    <h1 class="font-headline-xl text-headline-xl text-white drop-shadow-sm" data-i18n="hero_title">
                         Cultivating the Future: The Integrated Life-cycle Advantage.
                     </h1>
-                    <p class="text-body-lg font-body-lg text-white/90 max-w-xl">
+                    <p class="text-body-lg font-body-lg text-white/90 max-w-xl" data-i18n="hero_desc">
                         Revolutionizing agriculture from seed to harvest with seamless, sustainable solutions designed
                         for high-precision institutional yields.
                     </p>
                     <div class="flex items-center gap-4 mt-4">
-                        <a class="bg-secondary-container text-on-secondary-fixed-variant px-8 py-4 font-label-md rounded-lg hover:brightness-110 transition-all" href="solutions.html">Explore Our Solutions</a>
-                        <a class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 font-label-md rounded-lg hover:bg-white/20 transition-all" href="technology.html">How It Works</a>
+                        <a class="bg-secondary-container text-on-secondary-fixed-variant px-8 py-4 font-label-md rounded-lg hover:brightness-110 transition-all" href="solutions.html" data-i18n="btn_explore">Explore Our Solutions</a>
+                        <a class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 font-label-md rounded-lg hover:bg-white/20 transition-all" href="technology.html" data-i18n="btn_how_it_works">How It Works</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +122,7 @@
         <section class="py-16 bg-surface-container-low overflow-hidden" id="lifecycle-journey">
             <div class="max-w-[1280px] mx-auto px-6">
                 <div class="flex flex-col items-center mb-12 reveal">
-                    <h3 class="font-headline-md text-primary">Integrated Life-cycle Journey</h3>
+                    <h3 class="font-headline-md text-primary" data-i18n="lifecycle_title">Integrated Life-cycle Journey</h3>
                 </div>
                 <div class="relative">
                     <!-- Progress Line with Animation -->
@@ -111,32 +136,32 @@
                             <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 border-2 border-white">
                                 <span class="material-symbols-outlined text-primary-container">crop</span>
                             </div>
-                            <span class="font-headline-md text-primary block mb-1">Seed</span>
-                            <p class="text-label-md text-on-surface-variant">Genetic Selection</p>
+                            <span class="font-headline-md text-primary block mb-1" data-i18n="step_1_title">Seed</span>
+                            <p class="text-label-md text-on-surface-variant" data-i18n="step_1_desc">Genetic Selection</p>
                         </div>
                         <!-- Step 2 -->
                         <div class="lifecycle-step flex flex-col items-center text-center bg-white p-8 border border-primary/10 rounded-lg">
                             <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 border-2 border-white">
                                 <span class="material-symbols-outlined text-primary-container">water_drop</span>
                             </div>
-                            <span class="font-headline-md text-primary block mb-1">Care</span>
-                            <p class="text-label-md text-on-surface-variant">Precision Inputs</p>
+                            <span class="font-headline-md text-primary block mb-1" data-i18n="step_2_title">Care</span>
+                            <p class="text-label-md text-on-surface-variant" data-i18n="step_2_desc">Precision Inputs</p>
                         </div>
                         <!-- Step 3 -->
                         <div class="lifecycle-step flex flex-col items-center text-center bg-white p-8 border border-primary/10 rounded-lg">
                             <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 border-2 border-white">
                                 <span class="material-symbols-outlined text-primary-container">monitoring</span>
                             </div>
-                            <span class="font-headline-md text-primary block mb-1">Scale</span>
-                            <p class="text-label-md text-on-surface-variant">Real-time Analytics</p>
+                            <span class="font-headline-md text-primary block mb-1" data-i18n="step_3_title">Scale</span>
+                            <p class="text-label-md text-on-surface-variant" data-i18n="step_3_desc">Real-time Analytics</p>
                         </div>
                         <!-- Step 4 -->
                         <div class="lifecycle-step flex flex-col items-center text-center bg-white p-8 border border-primary/10 rounded-lg">
                             <div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mb-4 border-2 border-white">
                                 <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
                             </div>
-                            <span class="font-headline-md text-primary block mb-1">Market</span>
-                            <p class="text-label-md text-on-surface-variant">Seamless Harvest</p>
+                            <span class="font-headline-md text-primary block mb-1" data-i18n="step_4_title">Market</span>
+                            <p class="text-label-md text-on-surface-variant" data-i18n="step_4_desc">Seamless Harvest</p>
                         </div>
                     </div>
                 </div>
@@ -155,10 +180,10 @@
                         </div>
                         <div>
                             <span class="text-2xl font-bold text-teal-900 dark:text-teal-50 block leading-tight">BuddhaAgro</span>
-                            <span class="font-manrope text-xs font-semibold tracking-wider uppercase text-teal-900/60 dark:text-teal-500 block">Agrotech & Bioscience</span>
+                            <span class="font-manrope text-xs font-semibold tracking-wider uppercase text-teal-900/60 dark:text-teal-500 block" data-i18n="footer_sub_title">Agrotech & Bioscience</span>
                         </div>
                     </a>
-                    <p class="text-xs text-stone-500 max-w-sm mt-2 font-manrope font-medium">
+                    <p class="text-xs text-stone-500 max-w-sm mt-2 font-manrope font-medium" data-i18n="footer_address">
                         Vill & Post - Teuwan grant Tola Dokam, Tahsil - Itwa, Disstt - Siddharth Nagar, U.P. 272192
                     </p>
                 </div>
@@ -173,14 +198,14 @@
             </div>
             
             <div class="pt-8 border-t border-teal-900/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-                <p class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500">
+                <p class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500" data-i18n="footer_copyright">
                     © 2025 Buddha Agrotech and Bioscience Private Limited. All rights reserved.
                 </p>
                 <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Compliance</a>
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Sustainability</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_terms">Terms of Service</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_compliance">Compliance</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_sustainability">Sustainability</a>
                 </div>
             </div>
         </div>

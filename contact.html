@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Contact Us | BuddhaAgro</title>
+    <title data-i18n="page_title_contact">Contact Us | BuddhaAgro</title>
     <meta name="description" content="Get in touch with the BuddhaAgro team. Send an inquiry or visit our headquarters to optimize your agricultural lifecycle journey." />
     
     <!-- Favicon -->
@@ -20,7 +20,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Custom JS (Config + App Logic) -->
+    <!-- Custom JS (Config + Localization + App Logic) -->
+    <script src="js/translations.js" defer></script>
+    <script src="js/shared.js" defer></script>
     <script src="js/main.js" defer></script>
 </head>
 
@@ -37,16 +39,26 @@
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8 font-manrope text-sm font-medium tracking-tight">
-                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="about.html">About Us</a>
-                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="solutions.html">Solutions</a>
-                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="technology.html">Technology</a>
-                <a class="text-teal-900 dark:text-white font-semibold transition-colors duration-200" href="contact.html">Contact</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="about.html" data-i18n="nav_about">About Us</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="solutions.html" data-i18n="nav_solutions">Solutions</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="technology.html" data-i18n="nav_technology">Technology</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="contact.html" data-i18n="nav_contact">Contact</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="contact.html" class="hidden sm:inline-block bg-primary-container text-white px-6 py-2.5 font-label-md rounded-lg active:scale-95 transition-transform duration-150 hover:bg-primary text-center">
+                <a href="contact.html" class="hidden sm:inline-block bg-primary-container text-white px-6 py-2.5 font-label-md rounded-lg active:scale-95 transition-transform duration-150 hover:bg-primary text-center" data-i18n="btn_get_started">
                     Get Started
                 </a>
+                
+                <!-- Desktop Language Switcher -->
+                <div class="flex items-center bg-stone-100 dark:bg-stone-800 p-1 rounded-lg border border-teal-900/10 dark:border-white/10" id="lang-switcher-desktop">
+                    <button onclick="switchLanguage('en')" class="lang-btn-en px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-200">
+                        EN
+                    </button>
+                    <button onclick="switchLanguage('hi')" class="lang-btn-hi px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-200">
+                        हिन्दी
+                    </button>
+                </div>
                 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-teal-900 dark:text-white" aria-label="Toggle Menu">
@@ -58,11 +70,24 @@
         <!-- Mobile Menu Drawer -->
         <div id="mobile-menu" class="md:hidden bg-white dark:bg-stone-900 border-b border-teal-900/10 dark:border-white/10">
             <div class="px-6 py-8 flex flex-col space-y-6">
-                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="about.html">About Us</a>
-                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="solutions.html">Solutions</a>
-                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="technology.html">Technology</a>
-                <a class="text-lg font-bold text-teal-900 dark:text-white transition-colors" href="contact.html">Contact</a>
-                <a href="contact.html" class="w-full bg-primary-container text-white py-4 font-label-md rounded-lg text-center hover:bg-primary">Get Started</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="about.html" data-i18n="nav_about">About Us</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="solutions.html" data-i18n="nav_solutions">Solutions</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="technology.html" data-i18n="nav_technology">Technology</a>
+                <a class="text-lg font-bold text-teal-900 dark:text-white transition-colors" href="contact.html" data-i18n="nav_contact">Contact</a>
+                <a href="contact.html" class="w-full bg-primary-container text-white py-4 font-label-md rounded-lg text-center hover:bg-primary" data-i18n="btn_get_started">Get Started</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="flex justify-between items-center bg-stone-100 dark:bg-stone-850 p-2 rounded-lg mt-4 border border-teal-900/10 dark:border-white/10" id="lang-switcher-mobile">
+                    <span class="text-sm font-medium text-stone-600 dark:text-stone-400">Language / भाषा</span>
+                    <div class="flex items-center bg-stone-200 dark:bg-stone-800 p-0.5 rounded-md">
+                        <button onclick="switchLanguage('en')" class="lang-btn-en px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200">
+                            EN
+                        </button>
+                        <button onclick="switchLanguage('hi')" class="lang-btn-hi px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200">
+                            हिन्दी
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -73,27 +98,27 @@
             <div class="max-w-[1280px] mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
                     <div class="reveal">
-                        <span class="text-secondary font-label-md tracking-widest uppercase block mb-4">Connect With Us</span>
-                        <h1 class="font-headline-lg text-headline-lg text-primary mb-8">Start Your Integration Journey</h1>
+                        <span class="text-secondary font-label-md tracking-widest uppercase block mb-4" data-i18n="contact_tag">Connect With Us</span>
+                        <h1 class="font-headline-lg text-headline-lg text-primary mb-8" data-i18n="contact_title">Start Your Integration Journey</h1>
                         <div class="space-y-8 mb-12">
                             <div class="flex items-start gap-4">
                                 <span class="material-symbols-outlined text-primary mt-1">location_on</span>
                                 <div>
-                                    <h4 class="font-label-md text-primary uppercase">Corporate Office</h4>
-                                    <p class="text-on-surface-variant">Vill & Post - Teuwan grant Tola Dokam,<br />Tahsil - Itwa, Disstt - Siddharth Nagar,<br />Uttar Pradesh 272192</p>
+                                    <h4 class="font-label-md text-primary uppercase" data-i18n="contact_office_title">Corporate Office</h4>
+                                    <p class="text-on-surface-variant" data-i18n="contact_office_desc">Vill & Post - Teuwan grant Tola Dokam,<br />Tahsil - Itwa, Disstt - Siddharth Nagar,<br />Uttar Pradesh 272192</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
                                 <span class="material-symbols-outlined text-primary mt-1">phone_iphone</span>
                                 <div>
-                                    <h4 class="font-label-md text-primary uppercase">Mobile Support</h4>
+                                    <h4 class="font-label-md text-primary uppercase" data-i18n="contact_mobile_title">Mobile Support</h4>
                                     <p class="text-on-surface-variant"><a href="tel:+919005002845" class="hover:text-primary transition-colors font-medium">+91 90050 02845</a></p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
                                 <span class="material-symbols-outlined text-primary mt-1">mail</span>
                                 <div>
-                                    <h4 class="font-label-md text-primary uppercase">General Inquiries</h4>
+                                    <h4 class="font-label-md text-primary uppercase" data-i18n="contact_email_title">General Inquiries</h4>
                                     <p class="text-on-surface-variant">
                                         <a href="mailto:infobuddhaagrotech@gmail.com" class="hover:text-primary transition-colors font-medium">infobuddhaagrotech@gmail.com</a>
                                     </p>
@@ -111,46 +136,46 @@
                             <div class="success-icon">
                                 <span class="material-symbols-outlined text-primary-container text-4xl">check</span>
                             </div>
-                            <h3 class="font-headline-md text-primary mb-2">Message Sent!</h3>
-                            <p class="text-on-surface-variant">Thank you for reaching out. Our team will contact you within 24 hours to optimize your lifecycle journey.</p>
-                            <button onclick="location.reload()" class="mt-8 text-primary font-label-md underline underline-offset-4">Send another message</button>
+                            <h3 class="font-headline-md text-primary mb-2" data-i18n="contact_success_title">Message Sent!</h3>
+                            <p class="text-on-surface-variant" data-i18n="contact_success_desc">Thank you for reaching out. Our team will contact you within 24 hours to optimize your lifecycle journey.</p>
+                            <button onclick="location.reload()" class="mt-8 text-primary font-label-md underline underline-offset-4" data-i18n="contact_send_another">Send another message</button>
                         </div>
 
                         <form class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-xs font-label-md text-primary uppercase">Full Name</label>
-                                    <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="John Doe" type="text" />
-                                    <span class="field-error-msg">Please enter your name</span>
+                                    <label class="text-xs font-label-md text-primary uppercase" data-i18n="contact_label_name">Full Name</label>
+                                    <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="John Doe" type="text" data-i18n="contact_placeholder_name" />
+                                    <span class="field-error-msg" data-i18n="err_name">Please enter your name</span>
                                 </div>
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-xs font-label-md text-primary uppercase">Organization</label>
-                                    <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="Agro Corp" type="text" />
-                                    <span class="field-error-msg">Please enter organization</span>
+                                    <label class="text-xs font-label-md text-primary uppercase" data-i18n="contact_label_org">Organization</label>
+                                    <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="Agro Corp" type="text" data-i18n="contact_placeholder_org" />
+                                    <span class="field-error-msg" data-i18n="err_org">Please enter organization</span>
                                 </div>
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-xs font-label-md text-primary uppercase">Email Address</label>
-                                <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="john@company.com" type="email" />
-                                <span class="field-error-msg">Please enter a valid email</span>
+                                <label class="text-xs font-label-md text-primary uppercase" data-i18n="contact_label_email">Email Address</label>
+                                <input class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="john@company.com" type="email" data-i18n="contact_placeholder_email" />
+                                <span class="field-error-msg" data-i18n="err_email">Please enter a valid email</span>
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-xs font-label-md text-primary uppercase">Subject</label>
+                                <label class="text-xs font-label-md text-primary uppercase" data-i18n="contact_label_subject">Subject</label>
                                 <select class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none">
-                                    <option value="">Select a subject</option>
-                                    <option>Precision Farming Inquiry</option>
-                                    <option>Bio-input Procurement</option>
-                                    <option>Technology Partnership</option>
-                                    <option>General Support</option>
+                                    <option value="" data-i18n="subject_opt_placeholder">Select a subject</option>
+                                    <option data-i18n="subject_opt_precision">Precision Farming Inquiry</option>
+                                    <option data-i18n="subject_opt_bio">Bio-input Procurement</option>
+                                    <option data-i18n="subject_opt_tech">Technology Partnership</option>
+                                    <option data-i18n="subject_opt_support">General Support</option>
                                 </select>
-                                <span class="field-error-msg">Please select a subject</span>
+                                <span class="field-error-msg" data-i18n="err_subject">Please select a subject</span>
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="text-xs font-label-md text-primary uppercase">Message</label>
-                                <textarea class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="How can we help optimize your lifecycle?" rows="4"></textarea>
-                                <span class="field-error-msg">Please enter your message</span>
+                                <label class="text-xs font-label-md text-primary uppercase" data-i18n="contact_label_message">Message</label>
+                                <textarea class="bg-surface-container-low border border-primary/5 p-4 rounded text-body-md focus:border-primary-container focus:ring-0 transition-all outline-none" placeholder="How can we help optimize your lifecycle?" rows="4" data-i18n="contact_placeholder_message"></textarea>
+                                <span class="field-error-msg" data-i18n="err_message">Please enter your message</span>
                             </div>
-                            <button class="w-full bg-primary-container text-white py-4 font-label-md rounded hover:bg-primary transition-all">Submit Inquiry</button>
+                            <button class="w-full bg-primary-container text-white py-4 font-label-md rounded hover:bg-primary transition-all" data-i18n="contact_submit">Submit Inquiry</button>
                         </form>
                     </div>
                 </div>
@@ -169,10 +194,10 @@
                         </div>
                         <div>
                             <span class="text-2xl font-bold text-teal-900 dark:text-teal-50 block leading-tight">BuddhaAgro</span>
-                            <span class="font-manrope text-xs font-semibold tracking-wider uppercase text-teal-900/60 dark:text-teal-500 block">Agrotech & Bioscience</span>
+                            <span class="font-manrope text-xs font-semibold tracking-wider uppercase text-teal-900/60 dark:text-teal-500 block" data-i18n="footer_sub_title">Agrotech & Bioscience</span>
                         </div>
                     </a>
-                    <p class="text-xs text-stone-500 max-w-sm mt-2 font-manrope font-medium">
+                    <p class="text-xs text-stone-500 max-w-sm mt-2 font-manrope font-medium" data-i18n="footer_address">
                         Vill & Post - Teuwan grant Tola Dokam, Tahsil - Itwa, Disstt - Siddharth Nagar, U.P. 272192
                     </p>
                 </div>
@@ -187,14 +212,14 @@
             </div>
             
             <div class="pt-8 border-t border-teal-900/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-                <p class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500">
+                <p class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500" data-i18n="footer_copyright">
                     © 2025 Buddha Agrotech and Bioscience Private Limited. All rights reserved.
                 </p>
                 <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Compliance</a>
-                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#">Sustainability</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_terms">Terms of Service</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_compliance">Compliance</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="#" data-i18n="footer_sustainability">Sustainability</a>
                 </div>
             </div>
         </div>
