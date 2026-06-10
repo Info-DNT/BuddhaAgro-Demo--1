@@ -165,7 +165,7 @@ window.translations = {
     "products_section_title": "Our Premium Offerings",
     "products_section_subtitle": "Discover our high-quality agricultural products developed using state-of-the-art precision bio-inputs.",
     "product_kalanamak_title": "BuddhaAgro Kalanamak Rice",
-    "product_kalanamak_desc": "Heritage aromatic 'Buddha Rice' cultivated with advanced bio-inputs. Famous for its unique scent, rich nutrients, and low glycemic index.",
+    "product_kalanamak_desc": "An aromatic heritage 'Buddha Rice' cultivated with advanced bio-inputs. It is renowned for its unique scent, rich nutrient content, and low glycemic index.",
     "product_fertilizer_title": "Organic Bio-Fertilizer",
     "product_fertilizer_desc": "Enhanced bio-organic soil input designed to restore microbial activity and boost yield stability.",
     "product_seed_title": "Precision Seed Treatment",
