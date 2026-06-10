@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title data-i18n="page_title_kalanamak">Kalanamak Rice | BuddhaAgro</title>
+    <meta name="description" content="Discover BuddhaAgro's premium Kalanamak Rice, cultivated using advanced precision organic inputs in Siddharth Nagar." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../img/logo.jpg" />
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- Custom JS (Config + Localization + App Logic) -->
+    <script src="../js/translations.js" defer></script>
+    <script src="../js/shared.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-background text-on-surface font-body-md antialiased">
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-teal-900/10 dark:border-white/10 transition-all duration-300">
+        <div class="max-w-[1280px] mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <div class="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center shadow-sm border border-teal-900/10">
+                    <img src="../img/logo.jpg" alt="Buddha Agrotech and Bioscience Logo" class="h-full w-full object-contain" />
+                </div>
+                <span class="text-xl font-bold text-teal-900 dark:text-white tracking-tight">BuddhaAgro</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 font-manrope text-sm font-medium tracking-tight">
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="../about.html" data-i18n="nav_about">About Us</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="../solutions.html" data-i18n="nav_solutions">Solutions</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="../technology.html" data-i18n="nav_technology">Technology</a>
+                <a class="text-teal-900 dark:text-white font-semibold transition-colors duration-200" href="../products.html" data-i18n="nav_products">Products</a>
+                <a class="text-stone-600 dark:text-stone-400 hover:text-teal-800 dark:hover:text-teal-200 transition-colors duration-200" href="../contact.html" data-i18n="nav_contact">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="../contact.html" class="hidden sm:inline-block bg-primary-container text-white px-6 py-2.5 font-label-md rounded-lg active:scale-95 transition-transform duration-150 hover:bg-primary text-center" data-i18n="btn_get_started">
+                    Get Started
+                </a>
+                
+                <!-- Desktop Language Switcher -->
+                <div class="flex items-center bg-stone-100 dark:bg-stone-800 p-1 rounded-lg border border-teal-900/10 dark:border-white/10" id="lang-switcher-desktop">
+                    <button onclick="switchLanguage('en')" class="lang-btn-en px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-200">
+                        EN
+                    </button>
+                    <button onclick="switchLanguage('hi')" class="lang-btn-hi px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-200">
+                        हिन्दी
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-teal-900 dark:text-white" aria-label="Toggle Menu">
+                    <span id="hamburger-icon" class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="md:hidden bg-white dark:bg-stone-900 border-b border-teal-900/10 dark:border-white/10">
+            <div class="px-6 py-8 flex flex-col space-y-6">
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="../about.html" data-i18n="nav_about">About Us</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="../solutions.html" data-i18n="nav_solutions">Solutions</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="../technology.html" data-i18n="nav_technology">Technology</a>
+                <a class="text-lg font-bold text-teal-900 dark:text-white transition-colors" href="../products.html" data-i18n="nav_products">Products</a>
+                <a class="text-lg font-medium text-stone-600 dark:text-stone-400 hover:text-teal-800 transition-colors" href="../contact.html" data-i18n="nav_contact">Contact</a>
+                <a href="../contact.html" class="w-full bg-primary-container text-white py-4 font-label-md rounded-lg text-center hover:bg-primary" data-i18n="btn_get_started">Get Started</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="flex justify-between items-center bg-stone-100 dark:bg-stone-850 p-2 rounded-lg mt-4 border border-teal-900/10 dark:border-white/10" id="lang-switcher-mobile">
+                    <span class="text-sm font-medium text-stone-600 dark:text-stone-400">Language / भाषा</span>
+                    <div class="flex items-center bg-stone-200 dark:bg-stone-800 p-0.5 rounded-md">
+                        <button onclick="switchLanguage('en')" class="lang-btn-en px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200">
+                            EN
+                        </button>
+                        <button onclick="switchLanguage('hi')" class="lang-btn-hi px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200">
+                            हिन्दी
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-20">
+        <!-- Hero Section -->
+        <section class="py-16 md:py-24 bg-surface overflow-hidden">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 reveal">
+                        <span class="bg-secondary-container/20 text-secondary border border-secondary/20 px-4 py-1 self-start rounded-full font-label-md text-xs uppercase" data-i18n="kalanamak_hero_tag">HERITAGE AROMATIC RICE</span>
+                        <h1 class="font-headline-xl text-headline-xl text-primary leading-tight" data-i18n="kalanamak_hero_title">
+                            BuddhaAgro Kalanamak Rice: The Scent of History, the Taste of Health
+                        </h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl" data-i18n="kalanamak_hero_desc">
+                            Sourced from the fertile, GI-tagged soils of Siddharth Nagar and cultivated using advanced bio-inputs. Known as the 'Buddha Rice', it blends heritage taste with exceptional nutritional values.
+                        </p>
+                        <div class="flex items-center gap-4 pt-4">
+                            <a class="bg-primary-container text-white px-8 py-4 font-label-md rounded-lg active:scale-95 transition-transform hover:bg-primary" href="../contact.html?subject=bio" data-i18n="btn_order_now">Inquire for Bulk Order</a>
+                            <a class="border border-primary/20 text-primary px-8 py-4 font-label-md rounded-lg hover:bg-primary/5 transition-all" href="#heritage" data-i18n="btn_how_it_works">How It Works</a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 reveal reveal-delay-2">
+                        <!-- Carousel Wrapper -->
+                        <div id="product-carousel" class="w-full flex flex-col gap-4">
+                            <!-- Viewport and Controls -->
+                            <div class="relative group w-full h-[380px] md:h-[450px] overflow-hidden rounded-2xl shadow-lg border border-primary/10 bg-stone-100 dark:bg-stone-900">
+                                <!-- Slide 1 -->
+                                <div class="carousel-slide absolute inset-0 transition-opacity duration-500 opacity-100 ease-in-out cursor-zoom-in overflow-hidden zoom-container">
+                                    <img alt="BuddhaAgro Premium Kalanamak Rice - Product Shot" class="w-full h-full object-cover transition-transform duration-200 origin-center zoom-img" src="../img/kalanamak-rice.png" />
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="carousel-slide absolute inset-0 transition-opacity duration-500 opacity-0 ease-in-out cursor-zoom-in overflow-hidden zoom-container">
+                                    <img alt="BuddhaAgro Premium Kalanamak Rice - Table Setting" class="w-full h-full object-cover transition-transform duration-200 origin-center zoom-img" src="../img/kalanamk rice.jfif" />
+                                </div>
+
+                                <!-- Left Button -->
+                                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-stone-900/90 hover:bg-white dark:hover:bg-stone-900 text-teal-950 dark:text-white p-3 rounded-full shadow-md hover:scale-110 active:scale-95 transition-all opacity-0 group-hover:opacity-100 z-10" aria-label="Previous Slide">
+                                    <span class="material-symbols-outlined block text-2xl">chevron_left</span>
+                                </button>
+                                
+                                <!-- Right Button -->
+                                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-stone-900/90 hover:bg-white dark:hover:bg-stone-900 text-teal-950 dark:text-white p-3 rounded-full shadow-md hover:scale-110 active:scale-95 transition-all opacity-0 group-hover:opacity-100 z-10" aria-label="Next Slide">
+                                    <span class="material-symbols-outlined block text-2xl">chevron_right</span>
+                                </button>
+                                
+                                <!-- Dots Indicator -->
+                                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                    <button onclick="setSlide(0)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-teal-900 dark:bg-white transition-all duration-300" aria-label="Slide 1"></button>
+                                    <button onclick="setSlide(1)" class="carousel-dot w-2.5 h-2.5 rounded-full bg-teal-900/40 dark:bg-white/40 hover:bg-teal-900/70 dark:hover:bg-white/70 transition-all duration-300" aria-label="Slide 2"></button>
+                                </div>
+                            </div>
+
+                            <!-- Thumbnail Gallery -->
+                            <div class="flex gap-4 justify-center">
+                                <button onclick="setSlide(0)" class="carousel-thumb w-20 h-20 rounded-xl overflow-hidden border-2 border-primary shadow-md active:scale-95 transition-all duration-200 bg-white dark:bg-stone-850 p-1">
+                                    <img src="../img/kalanamak-rice.png" alt="Thumbnail 1" class="w-full h-full object-cover rounded-lg" />
+                                </button>
+                                <button onclick="setSlide(1)" class="carousel-thumb w-20 h-20 rounded-xl overflow-hidden border-2 border-transparent hover:border-primary/50 shadow-md active:scale-95 transition-all duration-200 bg-white dark:bg-stone-850 p-1">
+                                    <img src="../img/kalanamk rice.jfif" alt="Thumbnail 2" class="w-full h-full object-cover rounded-lg" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heritage Story Section -->
+        <section class="py-16 bg-surface-container-low overflow-hidden" id="heritage">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-5 reveal">
+                        <div class="bg-primary-container text-white p-8 rounded-xl relative overflow-hidden shadow-sm">
+                            <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl mb-4 block" style="font-variation-settings: 'FILL' 1;">spa</span>
+                            <blockquote class="text-lg font-manrope font-semibold italic mb-4 leading-relaxed">
+                                "The grain is black as dark soil, the cooked kernel is white as snow, and its perfume is a gift of compassion."
+                            </blockquote>
+                            <cite class="text-xs font-label-md uppercase text-secondary-fixed-dim block">— Siddharth Nagar Folklore</cite>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 space-y-6 reveal reveal-delay-2">
+                        <span class="text-secondary font-label-md tracking-widest uppercase block" data-i18n="kalanamak_story_tag">THE BUDDHA RICE STORY</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary" data-i18n="kalanamak_story_title">A Legacy Dating Back to 600 BC</h2>
+                        <p class="text-body-md text-on-surface-variant leading-relaxed" data-i18n="kalanamak_story_desc">
+                            Legend has it that Lord Buddha, after breaking his fast at Kapilvastu, gifted these black-husked grains to the local villagers, asking them to sow them. The resulting rice possessed a unique aroma, carrying the essence of Buddha's mercy. Today, BuddhaAgro combines this ancient heritage with modern precision agriculture to produce the purest, most aromatic Kalanamak rice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health & Wellness Benefits Section -->
+        <section class="py-16 bg-white overflow-hidden">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="mb-12 text-center reveal">
+                    <h2 class="font-headline-lg text-headline-lg text-primary" data-i18n="kalanamak_health_title">Health & Wellness Benefits</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Benefit 1 -->
+                    <div class="bg-surface p-8 border border-primary/10 rounded-lg hover:shadow-md hover:border-primary/20 transition-all duration-300 reveal">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">bloodtype</span>
+                        </div>
+                        <h3 class="font-headline-md text-primary mb-3" data-i18n="kalanamak_health_1_title">Diabetic-Friendly</h3>
+                        <p class="text-body-md text-on-surface-variant" data-i18n="kalanamak_health_1_desc">
+                            With a low Glycemic Index (typically around 49–52), it releases sugar slowly into the bloodstream, preventing sudden spikes and crashes.
+                        </p>
+                    </div>
+                    <!-- Benefit 2 -->
+                    <div class="bg-surface p-8 border border-primary/10 rounded-lg hover:shadow-md hover:border-primary/20 transition-all duration-300 reveal reveal-delay-2">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">shield</span>
+                        </div>
+                        <h3 class="font-headline-md text-primary mb-3" data-i18n="kalanamak_health_2_title">High in Micronutrients</h3>
+                        <p class="text-body-md text-on-surface-variant" data-i18n="kalanamak_health_2_desc">
+                            It naturally contains higher levels of iron and zinc compared to regular white rice, which helps combat anemia and boosts immunity.
+                        </p>
+                    </div>
+                    <!-- Benefit 3 -->
+                    <div class="bg-surface p-8 border border-primary/10 rounded-lg hover:shadow-md hover:border-primary/20 transition-all duration-300 reveal reveal-delay-3">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">favorite</span>
+                        </div>
+                        <h3 class="font-headline-md text-primary mb-3" data-i18n="kalanamak_health_3_title">Rich in Antioxidants</h3>
+                        <p class="text-body-md text-on-surface-variant" data-i18n="kalanamak_health_3_desc">
+                            The presence of anthocyanin helps fight oxidative stress, supports healthy skin, and promotes heart health.
+                        </p>
+                    </div>
+                    <!-- Benefit 4 -->
+                    <div class="bg-surface p-8 border border-primary/10 rounded-lg hover:shadow-md hover:border-primary/20 transition-all duration-300 reveal">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">fitness_center</span>
+                        </div>
+                        <h3 class="font-headline-md text-primary mb-3" data-i18n="kalanamak_health_4_title">Weight Management</h3>
+                        <p class="text-body-md text-on-surface-variant" data-i18n="kalanamak_health_4_desc">
+                            Its higher protein and dietary fiber content keeps you feeling full longer, reducing cravings and unnecessary snacking.
+                        </p>
+                    </div>
+                    <!-- Benefit 5 -->
+                    <div class="bg-surface p-8 border border-primary/10 rounded-lg hover:shadow-md hover:border-primary/20 transition-all duration-300 reveal reveal-delay-2">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">spa</span>
+                        </div>
+                        <h3 class="font-headline-md text-primary mb-3" data-i18n="kalanamak_health_5_title">Easy to Digest</h3>
+                        <p class="text-body-md text-on-surface-variant" data-i18n="kalanamak_health_5_desc">
+                            It is gentle on the stomach and gut-friendly, making it a great dietary staple for both children and the elderly.
+                        </p>
+                    </div>
+                    <!-- Benefit 6 -->
+                    <div class="bg-surface p-8 border border-primary/10 rounded-lg hover:shadow-md hover:border-primary/20 transition-all duration-300 reveal reveal-delay-3">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                        </div>
+                        <h3 class="font-headline-md text-primary mb-3" data-i18n="kalanamak_health_6_title">Boosting Red Blood Cell Production</h3>
+                        <p class="text-body-md text-on-surface-variant" data-i18n="kalanamak_health_6_desc">
+                            Discover the exceptional health benefits of Kalanamak Rice. By incorporating this rice variant into your diet, you can effectively combat fatigue, boost energy levels, and enhance overall vitality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutritional Profile Section -->
+        <section class="py-16 bg-surface overflow-hidden" id="technology">
+            <div class="max-w-[1280px] mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-6" data-i18n="kalanamak_nutri_title">Nutritional Profile (per 100g)</h2>
+                        <div class="space-y-6">
+                            <!-- Nutri Item 1 -->
+                            <div>
+                                <div class="flex justify-between font-manrope text-sm font-semibold text-primary mb-1">
+                                    <span data-i18n="kalanamak_nutri_1_name">Zinc</span>
+                                    <span data-i18n="kalanamak_nutri_1_val">4.5 mg</span>
+                                </div>
+                                <div class="h-2 bg-primary/10 rounded-full overflow-hidden">
+                                    <div class="progress-bar-width h-full bg-primary-container rounded-full" style="--bar-w: 90%;"></div>
+                                </div>
+                            </div>
+                            <!-- Nutri Item 2 -->
+                            <div>
+                                <div class="flex justify-between font-manrope text-sm font-semibold text-primary mb-1">
+                                    <span data-i18n="kalanamak_nutri_2_name">Iron</span>
+                                    <span data-i18n="kalanamak_nutri_2_val">4.0 mg</span>
+                                </div>
+                                <div class="h-2 bg-primary/10 rounded-full overflow-hidden">
+                                    <div class="progress-bar-width h-full bg-primary-container rounded-full" style="--bar-w: 80%;"></div>
+                                </div>
+                            </div>
+                            <!-- Nutri Item 3 -->
+                            <div>
+                                <div class="flex justify-between font-manrope text-sm font-semibold text-primary mb-1">
+                                    <span data-i18n="kalanamak_nutri_3_name">Antioxidant Rating</span>
+                                    <span data-i18n="kalanamak_nutri_3_val">High (ORAC)</span>
+                                </div>
+                                <div class="h-2 bg-primary/10 rounded-full overflow-hidden">
+                                    <div class="progress-bar-width h-full bg-secondary-container rounded-full" style="--bar-w: 95%;"></div>
+                                </div>
+                            </div>
+                            <!-- Nutri Item 4 -->
+                            <div>
+                                <div class="flex justify-between font-manrope text-sm font-semibold text-primary mb-1">
+                                    <span data-i18n="kalanamak_nutri_4_name">Glycemic Index (GI)</span>
+                                    <span data-i18n="kalanamak_nutri_4_val">55 (Low-GI)</span>
+                                </div>
+                                <div class="h-2 bg-primary/10 rounded-full overflow-hidden">
+                                    <div class="progress-bar-width h-full bg-primary-container rounded-full" style="--bar-w: 55%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-delay-2 flex flex-col justify-center lg:pl-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            <h3 class="font-headline-lg text-headline-lg text-primary" data-i18n="kalanamak_gi_title">GI-Tagged & Authentic</h3>
+                        </div>
+                        <p class="text-body-lg text-on-surface-variant mb-8 max-w-xl" data-i18n="kalanamak_gi_desc">
+                            Sourced directly from certified farmers in Siddharth Nagar. Verified under geographical indication rules for authentic premium quality.
+                        </p>
+                        <a href="../contact.html?subject=bio" class="inline-block bg-primary text-white hover:bg-primary-container px-8 py-4 font-label-md rounded-lg shadow-md hover:scale-105 active:scale-95 transition-all w-fit" data-i18n="btn_order_now">Inquire for Bulk Order</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-50 dark:bg-stone-950 w-full py-16 border-t border-teal-900/10 dark:border-white/10">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12 mb-12">
+                <div>
+                    <a href="../index.html" class="flex items-center gap-4 mb-4 hover:opacity-80 transition-opacity">
+                        <div class="h-16 w-16 bg-white rounded-xl p-1.5 flex items-center justify-center shadow-sm border border-teal-900/10">
+                            <img src="../img/logo.jpg" alt="Buddha Agrotech and Bioscience Logo" class="h-full w-full object-contain" />
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-teal-900 dark:text-teal-50 block leading-tight">BuddhaAgro</span>
+                            <span class="font-manrope text-xs font-semibold tracking-wider uppercase text-teal-900/60 dark:text-teal-500 block" data-i18n="footer_sub_title">Agrotech & Bioscience</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-stone-500 max-w-sm mt-2 font-manrope font-medium" data-i18n="footer_address">
+                        Vill & Post - Teuwan grant Tola Dokam, Tahsil - Itwa, Disstt - Siddharth Nagar, U.P. 272192
+                    </p>
+                </div>
+                <div class="flex md:justify-end gap-6">
+                    <a href="#" class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-teal-900/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500" data-i18n="footer_copyright">
+                    © 2025 Buddha Agrotech and Bioscience Private Limited. All rights reserved.
+                </p>
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="../about.html#privacy" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="../about.html#terms" data-i18n="footer_terms">Terms of Service</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="../about.html#compliance" data-i18n="footer_compliance">Compliance</a>
+                    <a class="font-manrope text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-teal-700 underline-offset-4 hover:underline transition-all" href="../about.html#sustainability" data-i18n="footer_sustainability">Sustainability</a>
+                </div>
+            </div>
+        </div>
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const thumbs = document.querySelectorAll('.carousel-thumb');
+
+        function showSlide(index) {
+            if (index >= slides.length) currentSlideIndex = 0;
+            else if (index < 0) currentSlideIndex = slides.length - 1;
+            else currentSlideIndex = index;
+
+            slides.forEach((slide, i) => {
+                if (i === currentSlideIndex) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                    slide.style.pointerEvents = 'auto';
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                    slide.style.pointerEvents = 'none';
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === currentSlideIndex) {
+                    dot.classList.remove('bg-teal-900/40', 'dark:bg-white/40');
+                    dot.classList.add('bg-teal-900', 'dark:bg-white');
+                } else {
+                    dot.classList.remove('bg-teal-900', 'dark:bg-white');
+                    dot.classList.add('bg-teal-900/40', 'dark:bg-white/40');
+                }
+            });
+
+            thumbs.forEach((thumb, i) => {
+                if (i === currentSlideIndex) {
+                    thumb.classList.remove('border-transparent', 'hover:border-primary/50');
+                    thumb.classList.add('border-primary');
+                } else {
+                    thumb.classList.remove('border-primary');
+                    thumb.classList.add('border-transparent', 'hover:border-primary/50');
+                }
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlideIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlideIndex - 1);
+        }
+
+        function setSlide(index) {
+            showSlide(index);
+        }
+        
+        // Auto-play the carousel every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // Reset interval on manual interaction
+        const carouselContainer = document.getElementById('product-carousel');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            carouselContainer.addEventListener('mouseleave', () => {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        }
+
+        // Amazon-style Hover Zoom Effect
+        const zoomContainers = document.querySelectorAll('.zoom-container');
+        zoomContainers.forEach(container => {
+            const img = container.querySelector('.zoom-img');
+            
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                img.style.transformOrigin = `${x}% ${y}%`;
+                img.style.transform = 'scale(2.2)';
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+                img.style.transformOrigin = 'center center';
+            });
+        });
+    </script>
+</body>
+
+</html>
